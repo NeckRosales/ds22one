@@ -10,53 +10,52 @@
  *
  * write it and make sure it runs
  */
-let t = [
+let arbol = [
   [0, 1, 0, 0], //1
   [1, 0, 1, 1], //2
   [0, 1, 0, 0], //3
   [0, 1, 0, 0], //4
 ];
 class Matriz {
-  constructor(m) {
-    this.m = m;
+  constructor(mat) {
+    this.mat = mat;
   }
-  isSquare(m) {
-    for (let i = 0; i < m.length; i++) {
+  isSquare(mat) {
+    for (let i = 0; i < mat.length; i++) {
       let evaluar;
-      evaluar = m[i].length;
-
-      if (evaluar != m.length) {
+      evaluar = mat[i].length;
+      if (evaluar != mat.length) {
         return false;
       }
     }
     return true;
   }
-  isSymmetrical(m) {
-    for (let i = 0; i < m.length; i++) {
-      for (let j = 0; j < m[i].length; j++) {
-        if (m[i][j] != m[j][i]) {
+  isSymmetrical(mat) {
+    for (let i = 0; i < mat.length; i++) {
+      for (let j = 0; j < mat[i].length; j++) {
+        if (mat[i][j] != mat[j][i]) {
           return false;
         }
       }
     }
     return true;
   }
-  isTree(m) {
-    let suma = 0;
-    let cont = 0;
-    let col = 0;
-    for (let i = 0; i < m.length; i++) {
-      for (let j = 0; j < m[i].length; j++) {
-        cont++;
-        col = cont / m.length;
+  isTree(mat) {
+    let sumarr = 0;
+    let contt = 0;
+    let coll = 0;
+    for (let i = 0; i < mat.length; i++) {
+      for (let j = 0; j < mat[i].length; j++) {
+        contt++;
+        coll = contt / mat.length;
       }
     }
-    for (let i = 1; i < m.length; i++) {
-      suma = 0;
+    for (let i = 1; i < mat.length; i++) {
+      sumarr = 0;
       for (let j = 0; j < col; j++) {
         if (j < i) {
-          suma += m[i][j];
-          if (suma > 1) {
+          sumarr += mat[i][j];
+          if (sumarr > 1) {
             return false;
           }
         }
@@ -64,16 +63,16 @@ class Matriz {
     }
     return true;
   }
-  isGraph(m) {
-    if (m.isTree(m) == false) {
+  isGraph(mat) {
+    if (mat.isTree(mat) == false) {
       return true;
     } else {
       return false;
     }
   }
 }
-let m = new Matriz(t);
-console.log(m.isSquare(m));
-console.log(m.isSymmetrical(m));
-console.log(m.isTree(m));
-console.log(m.isGraph(m));
+let mat = new Matriz(arbol);
+console.log(mat.isSquare(mat));
+console.log(mat.isSymmetrical(mat));
+console.log(mat.isTree(mat));
+console.log(mat.isGraph(mat));
