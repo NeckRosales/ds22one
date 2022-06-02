@@ -16,11 +16,11 @@ class Node {
     this.children = [];
   }
   toString() {
-    let s = `${this.d} => `;
+    let v = `${this.d} => `;
     this.children.forEach((child) => {
-      s += child.d + " ";
+      v += child.d + " ";
     });
-    return s;
+    return v;
   }
 }
 class Tree {
@@ -41,13 +41,13 @@ class Tree {
     }
   }
   findBFS(d) {
-    let _n = null;
+    let r = null;
     this.traverseBFS((n) => {
       if (n.d == d) {
-        _n = n;
+        r = n;
       }
     });
-    return _n;
+    return r;
   }
   traverseBFS(c) {
     const queue = [this.root];
