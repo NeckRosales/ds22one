@@ -15,13 +15,13 @@ class LinkedList {
     this.head = head;
   }
   get size() {
-    let count = 0;
+    let contador = 0;
     let node = this.head;
     while (node) {
-      count++;
+      contador++;
       node = node.next;
     }
-    return count;
+    return contador;
   }
   clear() {
     this.head = null;
@@ -32,13 +32,13 @@ class LinkedList {
     return node ? true : false;
   }
   getLast() {
-    let lastNode = this.head;
-    if (lastNode) {
-      while (lastNode.next) {
-        lastNode = lastNode.next;
+    let nodesiguiente = this.head;
+    if (nodesiguiente) {
+      while (nodesiguiente.next) {
+        nodesiguiente = nodesiguiente.next;
       }
     }
-    return lastNode;
+    return nodesiguiente;
   }
   getFirst() {
     return this.head;
@@ -48,8 +48,8 @@ class LinkedList {
     this.head = n;
   }
   append(n) {
-    let last = this.getLast();
-    if (last) last.next = n;
+    let siguiente = this.getLast();
+    if (siguiente) siguiente.next = n;
     else this.head = n;
   }
   traverse(b) {
@@ -74,19 +74,19 @@ class Queue {
     this.list.append(new ListNode(b));
   }
   dequeue() {
-    let first = this.list.getFirst();
-    if (first) {
-      this.list.head = first.next;
-      return first.data;
+    let primero = this.list.getFirst();
+    if (primero) {
+      this.list.head = primero.next;
+      return primero.data;
     }
     return null;
   }
   toString() {
     let str = "";
     let node = this.list.getFirst();
-    let back = this.list.getLast();
+    let atras = this.list.getLast();
     while (node) {
-      str += `${node.data}${back == node ? "." : ", "}`;
+      str += `${node.data}${atras == node ? "." : ", "}`;
       node = node.next;
     }
     return str ? str : null;
@@ -95,8 +95,8 @@ class Queue {
     this.list.clear();
   }
   get front() {
-    let first = this.list.getFirst();
-    return first ? first.data : null;
+    let primero = this.list.getFirst();
+    return primero ? primero.data : null;
   }
   get back() {
     return this.list.getLast();
@@ -112,9 +112,9 @@ class Stack {
   pop() {
     if (this.list.size > 1) {
       let secondToLast = this.list.traverse(this.list.size - 1);
-      let last = secondToLast.next;
+      let siguiente = secondToLast.next;
       secondToLast.next = null;
-      return last.data;
+      return siguiente.data;
     } else if (this.peek()) {
       let data = this.peek();
       this.empty();
@@ -122,15 +122,15 @@ class Stack {
     } else return null;
   }
   peek() {
-    let last = this.list.getLast();
-    return last ? last.data : null;
+    let siguiente = this.list.getLast();
+    return siguiente ? siguiente.data : null;
   }
   toString() {
     let str = "";
     let node = this.list.getFirst();
-    let back = this.list.getLast();
+    let atras = this.list.getLast();
     while (node) {
-      str += `${node.data}${back == node ? "." : ", "}`;
+      str += `${node.data}${atras == node ? "." : ", "}`;
       node = node.next;
     }
     return str ? str : null;
