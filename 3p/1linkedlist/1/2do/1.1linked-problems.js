@@ -35,11 +35,11 @@ const contains = (c) => {
     if(traverse(c)==c)return true
     return false
 }
-let a1 = new Node(3)
-let a2 = new Node(-2)
-let a3 = new Node(1)
-a1.next=a2
-a2.next=a3
+let n1 = new Node(3)
+let n2 = new Node(-2)
+let n3 = new Node(1)
+n1.next=n2
+n2.next=n3
 let a=0
-console.log(contains(a2))
-console.log(a1)
+console.log(contains(n2))
+console.log(n1)
