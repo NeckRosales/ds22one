@@ -39,30 +39,30 @@ function postorder(a){
         console.log(a.d)
     }
 }
-function preorder(a){
-    if (a!==null){
-        console.log(a.d)
-        preorder(a.l)
-        preorder(a.r)
+function preorder(m){
+    if (m!==null){
+        console.log(m.d)
+        preorder(m.l)
+        preorder(m.r)
     }
 }
-function Node(o){
-    this.d=o//bject<->data
+function Node(n){
+    this.d=n//bject<->data
     this.l=null//eft
     this.r=null//ight
 }
-let ob = new Node('+')
-let b1 = new Node('-')
-let b2 = new Node(3)
-let b3 = new Node(8)
-let b4 = new Node(3)
-ob.l = b1
-b1.l = b3
-b1.r = b4
-ob.r = b2
+let ns = new Node('+')
+let n1 = new Node('-')
+let n2 = new Node(3)
+let n3 = new Node(8)
+let n4 = new Node(3)
+ns.l = n1
+n1.l = n3
+n1.r = n4
+ns.r = n2
 console.log('Preorder:')
-console.log(preorder(ob))
+console.log(preorder(ns))
 console.log('Inorder')
-console.log(inorder(ob))
+console.log(inorder(ns))
 console.log('Postorder')
-console.log(postorder(ob))
+console.log(postorder(ns))
